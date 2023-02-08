@@ -1,17 +1,18 @@
-// swift-tools-version:5.0
+// swift-tools-version:5.7
 
 import PackageDescription
 
 let package = Package(
   name: "Swifter",
-
+  platforms: [
+    .iOS(.v13),
+    .macOS(.v11),
+    .tvOS(.v11)
+  ],
   products: [
     .library(name: "Swifter", targets: ["Swifter"]),
     .executable(name: "SwifterExample", targets: ["SwifterExample"])
   ],
-
-  dependencies: [],
-
   targets: [
     .target(
       name: "Swifter", 
@@ -19,7 +20,7 @@ let package = Package(
       path: "Xcode/Sources"
       ),
 
-    .target(
+    .executableTarget(
       name: "SwifterExample",
       dependencies: [
         "Swifter"
